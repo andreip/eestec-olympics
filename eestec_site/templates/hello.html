@@ -1,1 +1,26 @@
-<span>Hello, you've logged in!</span>
+<head>
+	<title> Online Library </title>
+</head>
+
+<body>
+<h1 align="center"> Online Library </h1>
+<form action="/search" method="post">
+<input type='checkbox'>PC</input> <br />
+<input type='checkbox'>PC2</input> <br />
+<input type="submit" name='search' value="search"></input>
+</form>
+
+<div align="center">
+	{% for entry in entries %}
+	<span>Format: {{entry.format_type}}</span> <br/>
+	<span>Type: {{entry.file_type}}</span> <br/>
+	<span>Language: {{entry.language}}</span> <br/>
+	<span>Indentif: {{entry.identif}}</span> <br/>
+	<span>File name: {{entry.file_name}}</span> <br/>
+	<span>Author: {{entry.author}}</span> <br/>
+	<br/><br/>
+	{%endfor%}
+</div>
+</body>
+
+
