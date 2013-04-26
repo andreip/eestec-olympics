@@ -8,4 +8,8 @@ def index(request):
     if not request.user.is_authenticated():
         return HttpResponse('Please login!')
 
-    return HttpResponse("welcome, nigga!")
+    return HttpResponse("welcome, nigga'!")
+
+@require_http_methods(["GET"])
+def secret(request):
+    return HttpResponse("You are not allowed to be here!");
