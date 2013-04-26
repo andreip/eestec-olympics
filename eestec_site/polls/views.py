@@ -14,4 +14,10 @@ def index(request):
 
 @require_http_methods(["GET"])
 def secret(request):
-    return HttpResponse("You are not allowed to be here!");
+    return HttpResponse("You are not allowed to be here!")
+
+def search_index(request):
+    return HttpResponse("Type the search in the URL")
+
+def search_by(request, title, author, year):
+    return HttpResponse("Ati cautat \"" + title + "\" de \"" + author + " \"din " + year)
