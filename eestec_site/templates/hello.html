@@ -16,14 +16,14 @@
 {% csrf_token %}
 <div align="left">
 	{%for type in list_types%}
-	<input type='checkbox' name="file_type">{{type.file_type}}</input> <br />
+	<input type='radio' name="file_type" value="{{type.file_type}}">{{type.file_type}}</input> <br />
 	{%for lang in list_lang%}
-		<input class='inner' type='checkbox' name="language"> {{lang.language}}</input><br />
+		<input class='inner' type='radio' value="{{lang.language}}" name="language"> {{lang.language}}</input><br />
 	{%endfor%}
 	</div>
 	{%endfor%}
 </div>
-<input type="submit" name='search' value="search"></input>
+<input type="submit"  value="search"></input>
 </form>
 
 <div align="center">

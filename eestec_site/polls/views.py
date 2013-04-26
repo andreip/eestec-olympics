@@ -14,7 +14,11 @@ def index(request):
     langs = Entry.objects.values('language').distinct()
 
     if request.method == 'POST':
-        return HttpResponse('ceva')
+        resp = ""
+        for entry in request.POST.items():
+            print "caut " + entry[0] + " cu valoarea " + entry[1] + '\n'
+
+        return HttpResponse(resp)
     else:
         objects = Entry.objects.all()
         params = {"entries":objects,"list_types":types,"list_lang":langs}
