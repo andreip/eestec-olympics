@@ -3,9 +3,39 @@
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+FACEBOOK_APP_ID='126631647532361'
+FACEBOOK_API_SECRET='42f3277187d70990bfd295aa9aede832'
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "social_auth.context_processors.social_auth_by_type_backends",
+    "django.contrib.auth.context_processors.auth"
+)
+
+LOGIN_URL = '/complete/facebook'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_ERROR_URL = '/'
+
+SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
+SOCIAL_AUTH_UID_LENGTH = 8
+SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 8
+SOCIAL_AUTH_NONCE_SERVER_URL_LENGTH = 8
+SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 8
+SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 8
+
+SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook', 'twitter', 'github')
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.facebook.FacebookBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.contrib.github.GithubBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
 
 MANAGERS = ADMINS
 
@@ -111,6 +141,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    "templates/",
 )
 
 INSTALLED_APPS = (
@@ -125,6 +156,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'polls',
+    'social_auth',
 )
 
 # A sample logging configuration. The only tangible logging
