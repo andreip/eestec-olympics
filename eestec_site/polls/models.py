@@ -8,13 +8,15 @@ class Published(models.Model):
 	publisher = models.ForeignKey(Publisher)
 	year = models.IntegerField()
 	value = models.CharField(max_length=100)
+class Place(models.Model):
+	name = models.CharField(max_length=100)
 
 class Entry(models.Model):
 	format_type = models.CharField(max_length=100)
+	file_type = models.CharField(max_length=100)
 	language = models.CharField(max_length=100)
 	identif = models.CharField(max_length=100)
 	file_type = models.CharField(max_length=100)
-	short_desc = models.TextField()
 	platform =  models.URLField()
 	platformName = models.CharField(max_length=100)
 	descr = models.TextField()
@@ -24,4 +26,5 @@ class Entry(models.Model):
 	isbn_value  = models.CharField(max_length=100)
 	body = models.TextField()
 	audience = models.CharField(max_length=100)
+	published = models.OneToOneField(Published,primary_key=True)	
 	
