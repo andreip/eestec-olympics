@@ -12,13 +12,13 @@
 
 <body>
 <h1 align="center"> Online Library </h1>
-<form action="/search" method="post">
+<form action="/" method="post">
+{% csrf_token %}
 <div align="left">
 	{%for type in list_types%}
-	<input type='checkbox'>{{type.file_type}}</input> <br />
-	<div class="inner" ID="tagid">
+	<input type='checkbox' name="file_type">{{type.file_type}}</input> <br />
 	{%for lang in list_lang%}
-		<input ID="tag_id" class="inner" type='checkbox'> {{  lang.language  }}</input><br />
+		<input class='inner' type='checkbox' name="language"> {{lang.language}}</input><br />
 	{%endfor%}
 	</div>
 	{%endfor%}
