@@ -3,7 +3,7 @@
 	<!-- http://www.biblacad.ro/ content -->
 	
 	
-	<topic lang="ro" id="itm1000" type="book" format="pdf" platform="http://www.biblacad.ro/" platformName="biblacad"> 
+	<topic lang="en" id="itm1000" type="book" format="pdf" platform="http://www.biblacad.ro/" platformName="biblacad"> 
 	  <title publisher="Dacia" year="1983">Gradina lui Epicur</title> 
 	  <shortdesc>Cand se afirma ca viata este buna sau cand se afirma ca viata este rea, se sustin niste lucruri lipsite de orice sens. Trebuie sa se spuna ca viata e si buna si rea, in acelasi timp, caci ideea despre bun si rau ne-a venit prin ea si numai prin ea. </shortdesc> 
 	  <author>Anatole France</author> 

@@ -1,5 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <head>
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
 	<title> Online Library </title>
+	<style type="text/css">
+	#tagid
+	{
+	border: 100px;
+	}
+	</style>
 </head>
 
 <body>
@@ -8,9 +16,11 @@
 <div align="left">
 	{%for type in list_types%}
 	<input type='checkbox'>{{type.file_type}}</input> <br />
+	<div class="inner" ID="tagid">
 	{%for lang in list_lang%}
-		<input type='checkbox'> {{lang.language}}</input><br />
+		<input ID="tag_id" class="inner" type='checkbox'> {{  lang.language  }}</input><br />
 	{%endfor%}
+	</div>
 	{%endfor%}
 </div>
 <input type="submit" name='search' value="search"></input>
