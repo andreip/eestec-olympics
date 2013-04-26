@@ -5,8 +5,11 @@
 <body>
 <h1 align="center"> Online Library </h1>
 <form action="/search" method="post">
-<input type='checkbox'>PC</input> <br />
-<input type='checkbox'>PC2</input> <br />
+<div align="left">
+	{%for type in list_types%}
+	<input type='checkbox'>{{type.file_type}}</input> <br />
+	{%endfor%}
+</div>
 <input type="submit" name='search' value="search"></input>
 </form>
 

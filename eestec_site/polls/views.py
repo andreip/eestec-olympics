@@ -9,8 +9,8 @@ def index(request):
     if not request.user.is_authenticated():
         return render_to_response('login.html')
     objects = Entry.objects.all()
-
-    return render_to_response('hello.html',{"entries":objects})
+    types = Entry.objects.values('file_type').distinct()
+    return render_to_response('hello.html',{"entries":objects,"list_types":types})
 
 @require_http_methods(["GET"])
 def secret(request):
