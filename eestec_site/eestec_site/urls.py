@@ -18,4 +18,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index, name='index'),
     url(r'^secret/', views.secret, name='secret'),
+    url(r'^searc/', views.search_index, name='search'),
+    url(r'^search/(?P<title>\w+)/(?P<author>\w+)/(?P<year>\d{4})/$', views.search_by, name='search_by'),
 )
