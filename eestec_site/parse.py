@@ -69,9 +69,4 @@ for i in range(len(itemlist)):
 	e.save()
 	b = Entry(format_type=format_aux,language=lang_aux,author=author,file_name=file_name,audience=p_id,body=p_cont,isbn_value=isbn,isbn_type=isbn_type,descr=descr_aux,platformName=platform_aux_name,platform=platform_aux,identif=id_aux,file_type=type_aux,published=d)
 	b.save()
-print len(itemlist)
-print itemlist[0].attributes['lang'].value
-
-atr = itemlist.getAttributeNode('lang')
-print atr
 

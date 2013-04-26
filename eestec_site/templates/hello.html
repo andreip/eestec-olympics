@@ -8,6 +8,9 @@
 <div align="left">
 	{%for type in list_types%}
 	<input type='checkbox'>{{type.file_type}}</input> <br />
+	{%for lang in list_lang%}
+		<input type='checkbox'> {{lang.language}}</input><br />
+	{%endfor%}
 	{%endfor%}
 </div>
 <input type="submit" name='search' value="search"></input>

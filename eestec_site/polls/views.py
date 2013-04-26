@@ -10,7 +10,8 @@ def index(request):
         return render_to_response('login.html')
     objects = Entry.objects.all()
     types = Entry.objects.values('file_type').distinct()
-    return render_to_response('hello.html',{"entries":objects,"list_types":types})
+    langs = Entry.objects.values('language').distinct()
+    return render_to_response('hello.html',{"entries":objects,"list_types":types,"list_lang":langs})
 
 @require_http_methods(["GET"])
 def secret(request):
