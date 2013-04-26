@@ -2,13 +2,14 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.views.decorators.http import require_http_methods
 from django.core.urlresolvers import reverse
+from django.shortcuts import render_to_response
 
 @require_http_methods(["GET"])
 def index(request):
     if not request.user.is_authenticated():
-        return HttpResponse('Please login!')
+        return render_to_response('login.html')
 
-    return HttpResponse("welcome, nigga'!")
+    return render_to_response('hello.html')
 
 @require_http_methods(["GET"])
 def secret(request):

@@ -20,4 +20,5 @@ urlpatterns = patterns('',
     url(r'^secret/', views.secret, name='secret'),
     url(r'^searc/', views.search_index, name='search'),
     url(r'^search/(?P<title>\w+)/(?P<author>\w+)/(?P<year>\d{4})/$', views.search_by, name='search_by'),
+    url(r'', include('social_auth.urls')),
 )
