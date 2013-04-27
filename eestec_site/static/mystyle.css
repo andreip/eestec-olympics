@@ -1,1 +1,30 @@
 .inner { margin-left: 20px; }
+body, html {
+    margin:0;
+    padding:0;
+    color:#000;
+    background:#a7a09a;
+}
+
+#wrap {
+    width:900px;
+    margin:0 auto;
+    background:#99c;
+}
+
+#col1 {
+    float:left;
+    width:250px;
+    background:#99c;
+}
+
+#footer {
+    clear:both;
+    background:#9c9;
+}
+
+#col2 {
+    float:right;
+    width:500px;
+    background:#99c;
+}

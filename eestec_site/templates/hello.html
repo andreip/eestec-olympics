@@ -1,41 +1,73 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <head>
-	<title> Online Library </title>
-	<link rel="stylesheet" type="text/css" href="static/mystyle.css">
+    <title>Online Library</title>
+    <style>
+        body, html {
+            margin:0;
+            padding:0;
+            color:#000;
+            background:#a7a09a;
+        }
+
+        #wrap {
+            width:900px;
+            margin:0 auto;
+            background:#99c;
+        }
+
+        #col1 {
+            float:left;
+            width:250px;
+            background:#99c;
+        }
+
+        #footer {
+            clear:both;
+            background:#9c9;
+        }
+
+        #col2 {
+            float:right;
+            width:500px;
+            background:#99c;
+        }
+
+    </style>
 </head>
 
 <body>
-<h1 align="center"> Online Library </h1>
-<form action="/" method="post">
-{% csrf_token %}
-<div align="left">
-	{%for type in list_types%}
-	<input type='radio' name="file_type" value="{{type.file_type}}">{{type.file_type}}</input> <br />
-	{%for lang in list_lang%}
-		<input class='inner' type='radio' value="{{lang.language}}" name="language"> {{lang.language}}</input><br />
-	{%endfor%}
-	</div>
-	{%endfor%}
-	<br />Title<br />
-	<input type="text" name="file_name"> </input> <br />
-	<br />Author<br />
-	<input type="text" name="author"> </input> <br />
-</div>
-<input type="submit"  value="search"></input>
-</form>
+    <div id="wrap">
+        <div id="header" align="center"><h1>Online Library</h1></div>
+        <div id="col1" align="center">
+            <form action="/" method="post">
+            {% csrf_token %}
+                {%for type in list_types%}
+                    <input type='radio' name="file_type" value="{{type.file_type}}">{{type.file_type}}</input> <br />
+                    {%for lang in list_lang%}
+                        <input class='inner' type='radio' value="{{lang.language}}" name="language"> {{lang.language}}</input><br />
+                    {%endfor%}
+                {%endfor%}
+                <br />Title<br />
+                <input type="text" name="file_name"> </input> <br />
+                <br />Author<br />
+                <input type="text" name="author"> </input> <br />
+                <input type="submit"  value="search"></input>
+            </form>
+        </div>
 
-<div align="center">
-	{% for entry in entries %}
-	<span>Format: {{entry.format_type}}</span> <br/>
-	<span>Type: {{entry.file_type}}</span> <br/>
-	<span>Language: {{entry.language}}</span> <br/>
-	<span>Indentif: {{entry.identif}}</span> <br/>
-	<span>File name: {{entry.file_name}}</span> <br/>
-	<span>Author: {{entry.author}}</span> <br/>
-	<a href="/files/{{entry.file_name}}">View</a> <br/>
-	<br/><br/>
-	{%endfor%}
-</div>
+        <div id="col2">
+            {% for entry in entries %}
+                <span>Format: {{entry.format_type}}</span> <br/>
+                <span>Type: {{entry.file_type}}</span> <br/>
+                <span>Language: {{entry.language}}</span> <br/>
+                <span>Indentif: {{entry.identif}}</span> <br/>
+                <span>File name: {{entry.file_name}}</span> <br/>
+                <span>Author: {{entry.author}}</span> <br/>
+                <a href="/files/{{entry.file_name}}">View</a> <br/>
+                <br/><br/>
+            {%endfor%}
+        </div>
+        <div id="footer">
+            <p>Footer</p>
+        </div>
+    </div>
 </body>
-
-
