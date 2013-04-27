@@ -20,10 +20,12 @@ def index(request):
     if request.method == 'POST':
         args = {}
         for entry in request.POST.items():
-            args[entry[0]] = entry[1]
+            if entry[1] != "":
+                args[entry[0]] = entry[1]
 
         # Don't ask
         del args['csrfmiddlewaretoken']
+        print args
 
         objects = Entry.objects.filter(**args)
         params = {"entries":objects, "list_types":types, "list_lang":langs}
