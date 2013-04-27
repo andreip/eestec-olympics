@@ -21,7 +21,7 @@ def index(request):
         # Don't ask
         del args['csrfmiddlewaretoken']
 
-        objects = Entry.objects.filter(**ceva)
+        objects = Entry.objects.filter(**args)
         params = {"entries":objects, "list_types":types, "list_lang":langs}
 
         return render_to_response("hello.html", params, RequestContext(request))
