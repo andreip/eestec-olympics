@@ -1,4 +1,5 @@
 # Django settings for eestec_site project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -14,6 +15,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "social_auth.context_processors.social_auth_by_type_backends",
     "django.contrib.auth.context_processors.auth"
 )
+
+import static.files
+FILES_DIR = os.path.dirname(os.path.abspath(static.files.__file__))
 
 LOGIN_URL = '/complete/facebook'
 LOGIN_REDIRECT_URL = '/'

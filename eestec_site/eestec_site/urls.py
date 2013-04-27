@@ -21,4 +21,5 @@ urlpatterns = patterns('',
     url(r'^searc/', views.index, name='search'),
     url(r'^search/(?P<title>\w+)/(?P<author>\w+)/(?P<year>\d{4})/$', views.search_by, name='search_by'),
     url(r'', include('social_auth.urls')),
+    url(r'^files/(?P<file_name>.*)$', views.files, name='files'),
 )
